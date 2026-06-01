@@ -404,6 +404,7 @@ install_opencode() {
 install_openclaw() {
   local src="$INTEGRATIONS/openclaw"
   local dest="${HOME}/.openclaw/agency-agents"
+  local agents_state="${HOME}/.openclaw/agents"
   local count=0
   local existing_agents=""
   [[ -d "$src" ]] || { err "integrations/openclaw missing. Run convert.sh first."; return 1; }
@@ -419,9 +420,22 @@ install_openclaw() {
     cp "$d/SOUL.md" "$dest/$name/SOUL.md"
     cp "$d/AGENTS.md" "$dest/$name/AGENTS.md"
     cp "$d/IDENTITY.md" "$dest/$name/IDENTITY.md"
+    # Also populate the agent state directory so OpenClaw can read the
+    # agent files at spawn time. `openclaw agents add --workspace ...`
+    # registers `agentDir` as `~/.openclaw/agents/<name>/agent/` by
+    # default but does not create or populate it — leaving sub-agent
+    # spawns to fail with "agentDir does not exist". Copying the same
+    # 3 files here keeps the agentDir read-only seed in sync with the
+    # workspace; OpenClaw runtime files (HEARTBEAT.md, TOOLS.md,
+    # USER.md, .openclaw/) are created on first spawn alongside them.
+    local agent_dir="$agents_state/$name/agent"
+    mkdir -p "$agent_dir"
+    cp "$d/SOUL.md" "$agent_dir/SOUL.md"
+    cp "$d/AGENTS.md" "$agent_dir/AGENTS.md"
+    cp "$d/IDENTITY.md" "$agent_dir/IDENTITY.md"
     if command -v openclaw >/dev/null 2>&1; then
       if [[ "$existing_agents" != *$'\n'"$name"$'\n'* ]]; then
-        openclaw agents add "$name" --workspace "$dest/$name" --non-interactive || true
+        openclaw agents add "$name" --workspace "$dest/$name" --agent-dir "$agent_dir" --non-interactive || true
       fi
     fi
     (( count++ )) || true

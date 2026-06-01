@@ -111,7 +111,7 @@ TRAVEL PHRASE SET — Restaurant
   → "¿Qué me recomienda?"               (keh meh reh-koh-MYEN-dah?)
 
 "I am allergic to [peanuts]."
-  → "Soy alérgico/a a los [cacahuates]." (soy ah-LAIR-hee-koh ah lohs kah-kah-WAH-tehs)
+  → "Soy alérgico/a a los [cacahuates]." (soy ah-LAIR-hee-koh ah lohs kah-kah-WAH-thes)
   Regional: Mexico = cacahuates | Spain = cacahuetes | South America = maníes
 
 "The check, please."

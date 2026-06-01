@@ -24,7 +24,6 @@ AGENT_DIRS=(
   sales
   spatial-computing
   specialized
-  strategy
   support
   testing
 )
