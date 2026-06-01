@@ -70,6 +70,40 @@ Browse the agents below and copy/adapt the ones you need!
 
 See the [Multi-Tool Integrations](#-multi-tool-integrations) section below for full details.
 
+### Agent Discovery for AI Runners
+
+Automated agents should use [`agent-registry.json`](agent-registry.json) as the canonical index for specialist selection. It lists every installable agent with category, source path, description, visual metadata, vibe, and derived routing keywords.
+
+```bash
+# Refresh the registry after editing agents or coordination guides
+python3 scripts/build-agent-registry.py
+
+# Ask the registry which agents fit a task
+python3 scripts/select-agent.py "map an unfamiliar repository for onboarding" --limit 3
+
+# Verify registry coverage and selector metadata
+python3 -m unittest tests/test_agent_registry.py
+```
+
+See [`docs/agent-discovery.md`](docs/agent-discovery.md) and [`AGENTS.md`](AGENTS.md) for the selection workflow.
+
+### Agent Tool Discovery
+
+Agents can also discover external utilities through [`agent-tools.json`](agent-tools.json). Registered tools include [Microsoft MarkItDown](tools/markitdown.md) for document-to-Markdown conversion, [Scrapling](tools/scrapling.md) for authorized adaptive web scraping and crawling, [Impeccable](tools/impeccable.md) for frontend design skill/audit workflows, [Heretic](tools/heretic.md) for controlled local model-ablation research, and [fff](tools/fff.md) for fast agent-facing repository search.
+
+```bash
+# Refresh the tool registry after editing tools/*.md
+python3 scripts/build-tool-registry.py
+
+# Ask which tool fits a task
+python3 scripts/select-tool.py "convert pdf docx pptx xlsx files into markdown" --limit 3
+python3 scripts/select-tool.py "scrape a dynamic website with adaptive selectors" --limit 3
+python3 scripts/select-tool.py "fast repo file search grep modified files" --limit 3
+
+# Verify tool discovery
+python3 -m unittest tests/test_tool_registry.py
+```
+
 ---
 
 ## 🎨 The Agency Roster

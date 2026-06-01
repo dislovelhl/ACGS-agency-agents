@@ -1,0 +1,342 @@
+{
+  "generated_at": "2026-06-01T11:51:34+00:00",
+  "schema_version": "1.0",
+  "tool_count": 5,
+  "tools": [
+    {
+      "avoid_when": [
+        "A single local `rg` command is enough and no MCP/tool installation is available.",
+        "The search root cannot be constrained to the intended repository or project."
+      ],
+      "capabilities": [
+        "file-search",
+        "content-search",
+        "repo-search",
+        "grep",
+        "fuzzy-search",
+        "mcp-server",
+        "code-navigation"
+      ],
+      "commands": [
+        "ffgrep \"TODO\"",
+        "fffind \"button\"",
+        "fff-multi-grep \"auth\" \"token\" \"session\"",
+        "curl -L https://dmtrkovalenko.dev/install-fff-mcp.sh | bash"
+      ],
+      "description": "Fast file and content search toolkit for AI agents and editors, with MCP tools, frecency-ranked path search, typo-resistant content search, git-aware annotations, and Neovim/Lua APIs.",
+      "formats": [
+        "file-path",
+        "text",
+        "source-code",
+        "repository"
+      ],
+      "id": "fff",
+      "install": "curl -L https://dmtrkovalenko.dev/install-fff-mcp.sh | bash",
+      "keywords": [
+        "fff",
+        "ffgrep",
+        "fffind",
+        "grep",
+        "search",
+        "file",
+        "files",
+        "repo",
+        "repository",
+        "code",
+        "content",
+        "fuzzy",
+        "frecency",
+        "mcp",
+        "modified",
+        "git",
+        "fast"
+      ],
+      "name": "fff",
+      "path": "tools/fff.md",
+      "python_api": "[]",
+      "security_notes": [
+        "Inspect install scripts before piping them to a shell in sensitive environments.",
+        "Limit searches to the intended git-indexed directory to avoid leaking private files into agent context.",
+        "Treat search output as potentially sensitive; avoid copying secrets, credentials, or private data into prompts unless explicitly needed and authorized."
+      ],
+      "source_url": "https://github.com/dmtrKovalenko/fff",
+      "use_when": [
+        "An MCP-capable agent needs fast repeated repository file search or grep.",
+        "An agent needs `ffgrep`, `fffind`, or `fff-multi-grep` instead of repeated shell grep/find calls.",
+        "An editor or agent workflow benefits from frecency, git-aware annotations, typo resistance, or warmed search indexes."
+      ]
+    },
+    {
+      "avoid_when": [
+        "The task asks for evading safety policies, producing harmful content, or deploying an uncensored model to users.",
+        "The environment lacks local model permissions, sufficient compute, dependency isolation, or model-risk review."
+      ],
+      "capabilities": [
+        "model-ablation-research",
+        "transformer-interpretability",
+        "refusal-analysis",
+        "residual-geometry",
+        "model-evaluation",
+        "local-llm-research"
+      ],
+      "commands": [
+        "heretic Qwen/Qwen3-4B-Instruct-2507",
+        "heretic --model google/gemma-3-12b-it --evaluate-model p-e-w/gemma-3-12b-it-heretic",
+        "heretic --help"
+      ],
+      "description": "Research CLI for automated directional ablation experiments on local transformer models, including refusal-direction analysis, optimization, evaluation, and interpretability-oriented residual geometry features.",
+      "formats": [
+        "huggingface-model",
+        "safetensors",
+        "pytorch",
+        "toml",
+        "png",
+        "gif"
+      ],
+      "id": "heretic",
+      "install": "pip install -U heretic-llm",
+      "keywords": [
+        "heretic",
+        "ablation",
+        "abliteration",
+        "refusal",
+        "refusals",
+        "direction",
+        "transformer",
+        "model",
+        "models",
+        "local",
+        "llm",
+        "research",
+        "interpretability",
+        "residual",
+        "geometry",
+        "optuna",
+        "evaluation",
+        "kl"
+      ],
+      "name": "Heretic",
+      "path": "tools/heretic.md",
+      "python_api": "[]",
+      "security_notes": [
+        "Treat this as a controlled local model-research tool, not a general agent utility.",
+        "Do not use it to bypass safety controls for harmful, abusive, illegal, or policy-violating deployments.",
+        "Expect high compute, VRAM, model-license, and supply-chain risk; pin dependencies and review model licenses before running.",
+        "Generated or modified models require safety evaluation and deployment governance before any release or user-facing use."
+      ],
+      "source_url": "https://github.com/p-e-w/heretic",
+      "use_when": [
+        "An authorized research agent needs to study refusal directions, ablation parameters, or transformer residual geometry.",
+        "An agent needs to evaluate an already-generated Heretic model against an original model in a controlled local environment.",
+        "A model-governance workflow needs evidence about model modification tradeoffs, KL divergence, or refusal behavior."
+      ]
+    },
+    {
+      "avoid_when": [
+        "The task is backend-only, data-only, or has no user interface.",
+        "The environment cannot run Node/npx or browser-based URL scanning safely."
+      ],
+      "capabilities": [
+        "design-audit",
+        "frontend-design",
+        "ui-polish",
+        "visual-critique",
+        "anti-pattern-detection",
+        "ux-writing",
+        "responsive-design"
+      ],
+      "commands": [
+        "npx impeccable skills install",
+        "npx impeccable detect src/",
+        "npx impeccable detect --fast --json .",
+        "/impeccable audit",
+        "/impeccable polish",
+        "/impeccable critique"
+      ],
+      "description": "Frontend design skill and CLI for AI harnesses, with design vocabulary, visual design commands, deterministic anti-pattern detection, and guidance for typography, color, motion, spatial design, interaction, responsive design, and UX writing.",
+      "formats": [
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "url",
+        "screenshot"
+      ],
+      "id": "impeccable",
+      "install": "npx impeccable skills install",
+      "keywords": [
+        "design",
+        "frontend",
+        "ui",
+        "ux",
+        "audit",
+        "polish",
+        "critique",
+        "anti-pattern",
+        "anti-patterns",
+        "visual",
+        "hierarchy",
+        "typography",
+        "color",
+        "motion",
+        "responsive",
+        "layout",
+        "impeccable"
+      ],
+      "name": "Impeccable",
+      "path": "tools/impeccable.md",
+      "python_api": "[]",
+      "security_notes": [
+        "Review any installer or downloaded skill bundle before running it in sensitive repositories.",
+        "URL scanning uses browser automation; treat remote pages as untrusted and avoid authenticated or private sessions unless explicitly required.",
+        "Do not let design automation override product, accessibility, privacy, or brand constraints without human review."
+      ],
+      "source_url": "https://github.com/pbakaus/impeccable",
+      "use_when": [
+        "An agent needs frontend design critique, anti-pattern detection, or final visual polish.",
+        "An agent needs shared `/impeccable` commands such as audit, polish, critique, harden, animate, colorize, typeset, layout, or adapt.",
+        "An agent needs deterministic detection of common AI-generated frontend design smells."
+      ]
+    },
+    {
+      "avoid_when": [
+        "The task needs pixel-perfect or legally authoritative document rendering.",
+        "Inputs are untrusted and cannot be constrained to safe local files or safe network destinations."
+      ],
+      "capabilities": [
+        "document-conversion",
+        "markdown-extraction",
+        "llm-preprocessing",
+        "file-ingestion"
+      ],
+      "commands": [
+        "markitdown path-to-file.pdf -o document.md",
+        "cat path-to-file.pdf | markitdown"
+      ],
+      "description": "Convert PDFs, Office documents, images, audio metadata/transcripts, HTML, CSV, JSON, XML, ZIP contents, YouTube URLs, EPubs, and other files into Markdown for LLM and agent text-analysis pipelines.",
+      "formats": [
+        "pdf",
+        "pptx",
+        "docx",
+        "xlsx",
+        "xls",
+        "outlook",
+        "image",
+        "audio",
+        "html",
+        "csv",
+        "json",
+        "xml",
+        "zip",
+        "youtube",
+        "epub"
+      ],
+      "id": "markitdown",
+      "install": "pip install 'markitdown[all]'",
+      "keywords": [
+        "convert",
+        "conversion",
+        "document",
+        "documents",
+        "markdown",
+        "office",
+        "pdf",
+        "powerpoint",
+        "word",
+        "excel",
+        "extraction",
+        "ingestion",
+        "llm"
+      ],
+      "name": "Microsoft MarkItDown",
+      "path": "tools/markitdown.md",
+      "python_api": [
+        "from markitdown import MarkItDown",
+        "result = MarkItDown(enable_plugins=False).convert(\"document.pdf\")"
+      ],
+      "security_notes": [
+        "MarkItDown performs I/O with the privileges of the current process.",
+        "Do not pass untrusted paths, URLs, archives, or user-controlled inputs directly without validation and restriction.",
+        "Prefer the narrowest conversion function or local-file workflow needed for the task.",
+        "Restrict URI schemes, network destinations, private ranges, loopback, link-local, and metadata-service access in hosted environments."
+      ],
+      "source_url": "https://github.com/microsoft/markitdown",
+      "use_when": [
+        "An agent needs to turn a PDF, Word, PowerPoint, Excel, HTML, structured text, archive, or media-adjacent file into Markdown.",
+        "An agent needs token-efficient document text for summarization, review, extraction, or downstream reasoning.",
+        "Human-readable fidelity is less important than structured Markdown for LLM consumption."
+      ]
+    },
+    {
+      "avoid_when": [
+        "The target forbids scraping or the agent lacks authorization.",
+        "The task only needs local file parsing, document conversion, or simple repo search.",
+        "Network execution cannot be sandboxed for untrusted pages."
+      ],
+      "capabilities": [
+        "web-scraping",
+        "web-crawling",
+        "adaptive-selectors",
+        "browser-automation",
+        "anti-bot-fetching",
+        "mcp-server",
+        "data-extraction"
+      ],
+      "commands": [
+        "scrapling extract get 'https://example.com' content.md",
+        "scrapling extract get 'https://example.com' content.txt --css-selector '#products' --impersonate 'chrome'",
+        "scrapling shell"
+      ],
+      "description": "Adaptive Python web scraping and crawling framework with resilient selectors, HTTP and browser fetchers, stealth sessions, proxy rotation, spider workflows, CLI extraction, and an MCP server for AI-assisted data extraction.",
+      "formats": [
+        "html",
+        "markdown",
+        "text",
+        "json",
+        "jsonl"
+      ],
+      "id": "scrapling",
+      "install": "pip install \"scrapling[all]\"",
+      "keywords": [
+        "scrape",
+        "scraping",
+        "crawl",
+        "crawling",
+        "website",
+        "web",
+        "dynamic",
+        "browser",
+        "stealth",
+        "selectors",
+        "css",
+        "xpath",
+        "adaptive",
+        "products",
+        "extraction",
+        "mcp",
+        "proxy",
+        "robots"
+      ],
+      "name": "Scrapling",
+      "path": "tools/scrapling.md",
+      "python_api": [
+        "from scrapling.fetchers import Fetcher, StealthyFetcher, DynamicFetcher",
+        "page = Fetcher.get(\"https://example.com/\")",
+        "items = page.css(\".product\", adaptive=True)"
+      ],
+      "security_notes": [
+        "Use only for lawful scraping, public-data collection, owned sites, or targets where you have permission.",
+        "Respect robots.txt, site terms, privacy law, rate limits, and data minimization requirements.",
+        "Treat URLs, selectors, proxy settings, and extracted content as untrusted input.",
+        "Do not use stealth or anti-bot features to evade access controls, authentication, paywalls, or explicit denial of permission.",
+        "Browser and fetcher modes perform network I/O and may execute remote page code; run in constrained environments for untrusted sites."
+      ],
+      "source_url": "https://github.com/D4Vinci/Scrapling",
+      "use_when": [
+        "An agent needs to extract structured content from websites, including dynamic pages.",
+        "An agent needs resilient CSS/XPath selectors that survive layout changes.",
+        "An agent needs crawling, pause/resume, proxy rotation, or an MCP-assisted scraping workflow."
+      ]
+    }
+  ]
+}

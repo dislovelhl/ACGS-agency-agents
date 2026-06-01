@@ -24,7 +24,6 @@ body:
         - support
         - spatial-computing
         - specialized
-        - strategy
         - new category (describe below)
     validations:
       required: true
