@@ -2,6 +2,14 @@
 
 This repository is an AI specialist catalog plus orchestration guidance. When you are asked to pick, install, convert, or coordinate agents, start from the machine-readable registry and then inspect the selected agent files.
 
+## Governance
+
+The operating constitution for these agents — how they must be defined, bound their
+scope, be selected and composed, and what safety/quality rules they obey across
+different kinds of work and scopes — lives in [`GOVERNANCE.md`](GOVERNANCE.md) and
+[`docs/governance/`](docs/governance/README.md). To find which rules apply to a
+specific task, use the [Work-Kind × Scope Operating Matrix](docs/governance/work-kind-scope-matrix.md).
+
 ## Discovery Order
 
 1. Read `agent-registry.json` for the available agents, categories, descriptions, keywords, and source paths.
